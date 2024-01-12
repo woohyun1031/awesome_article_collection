@@ -1,0 +1,84 @@
+#checkbox {
+  appearance: none;
+  /*  브라우저가 제공하는 폼 컨트롤의 스타일을 사용하지 않는다. 
+  의사요소인 ::before을 사용할 수 있다. */
+  position: relative;
+  display: inline-block;
+  background: lightgrey;
+  height: 1.65rem;
+  width: 2.75rem;
+  vertical-align: middle;
+  border-radius: 2rem;
+  box-shadow: 0px 1px 3px #0003 inset;
+  transition: 0.25s linear background;
+}
+#checkbox::before {
+  content: "";
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: #fff;
+  border-radius: 1.2rem;
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  box-shadow: 0px 1px 3px #0003;
+  transition: 0.25s linear transform;
+  transform: translateX(0rem);
+}
+#checkbox:checked {
+  background: green;
+}
+#checkbox:checked::before {
+  transform: translateX(1rem);
+}
+
+#checkbox:focus {
+  outline-color: transparent;
+}
+
+#checkbox:focus-visible {
+  outline: 2px solid dodgerblue;
+  outline-offset: 2px;
+}
+
+section {
+  margin-bottom: 24px;
+}
+
+p {
+  font-size: small;
+}
+
+#datalist:focus {
+  outline: none;
+}
+
+summary::marker {
+  font-size: 1.5em;
+  content: "📬";
+}
+[open] summary::marker {
+  font-size: 1.5em;
+  content: "📭";
+}
+summary:hover,
+summary:focus {
+  cursor: pointer;
+  background: deeppink;
+}
+.outer {
+  position: relative;
+}
+.inner {
+  position: absolute;
+  margin-left: 1.5em;
+}
+
+/* ::dackdrop이라는 새로운 의사 요소로  
+   대화 상자와 페이지의 나머지 부분 사이에 위치하며 
+   페이지의 나머지 부분을 어둡게 하거나 사용자의 주의를 대화 상자로 유도하는 등의 스타일을 지정할 수 있다*/
+dialog::backdrop {
+  background: #fff5;
+  backdrop-filter: blur(4px);
+}

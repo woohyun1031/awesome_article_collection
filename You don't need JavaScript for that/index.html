@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section>
+      <p>1. 커스텀 스위치</p>
+      <label>
+        <input id="checkbox" type="checkbox" />
+        My awesome feature
+      </label>
+    </section>
+
+    <section>
+      <p>
+        2. Datalist는 사용자가 입력할 때 옵션 목록을 표시하는 브라우저에서 기본
+        제공하는 방식
+      </p>
+      <input id="datalist" list="datalist_input" />
+      <datalist id="datalist_input">
+        <option>Bootstrap</option>
+        <option>Tailwind CSS</option>
+        <option>Foundation</option>
+        <option>Bulma</option>
+        <option>Skeleton</option>
+      </datalist>
+    </section>
+
+    <section>
+      <p>3. Chromium 브라우저에서 사용 가능한 많은 기능을 갖춘 색상 선택기</p>
+      <label> <input type="color" /> Color </label>
+    </section>
+
+    <section>
+      <p>4. 아코디언 메뉴</p>
+      <details>
+        <summary class="outer">My accordion</summary>
+        <div class="inner">
+          <p>=> My accordion content</p>
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <p>5. 대화 상자 모달</p>
+      <dialog id="dialog">
+        <!-- method의 dialog가 제출되면 브라우저는 이를 대화 상자를 다시 닫으라는 신호로 받아들인다-->
+        <!-- 다른 폼 데이터가 있는 경우에는 formData를 사용해 읽을 수 있다. -->
+        <form method="dialog">
+          <p>Tabs or spaces?</p>
+          <button type="submit" value="wrong">Tabs</button>
+          <button type="submit" value="correct">Spaces</button>
+        </form>
+      </dialog>
+      <!--  MDN의 최상위 계층(Top layer) -->
+      <button id="open">Open</button>
+    </section>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
