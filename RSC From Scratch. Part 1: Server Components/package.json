@@ -2,13 +2,13 @@
   "type": "module",
   "license": "MIT",
   "dependencies": {
-    "escape-html": "^1.0.3"
+    "escape-html": "^1.0.3",
+    "nodemon": "^3.0.2"
   },
   "scripts": {
     "start": "nodemon server.js"
   },
   "devDependencies": {
-    "@types/node": "^17.0.21",
-    "nodemon": "^3.0.2"
+    "@types/node": "^17.0.21"
   }
 }
