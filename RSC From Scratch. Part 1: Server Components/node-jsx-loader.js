@@ -1,4 +1,8 @@
+import { register } from "node:module";
+import { pathToFileURL } from "node:url";
 import babel from "@babel/core";
+
+const { pathname } = new URL(import.meta.url);
 
 const babelOptions = {
   //  Babel 설정 파일 무시
@@ -8,6 +12,8 @@ const babelOptions = {
   // React JSX를 자동적인 런타임에 변환하도록 설정
   plugins: [["@babel/plugin-transform-react-jsx", { runtime: "automatic" }]],
 };
+
+register("./node-jsx-loader.js", pathToFileURL("./"));
 
 export async function load(url, context, defaultLoad) {
   const result = await defaultLoad(url, context, defaultLoad);
