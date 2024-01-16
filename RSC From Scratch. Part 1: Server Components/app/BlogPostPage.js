@@ -1,19 +1,10 @@
-import { Footer } from "./Footer.js";
-
-export function BlogPostPage({ postContent, author }) {
+export function BlogPostPage({ postSlug, postContent }) {
   return (
-    <html>
-      <head>
-        <title>My blog</title>
-      </head>
-      <body>
-        <nav>
-          <a href="/">Home</a>
-          <hr />
-        </nav>
-        <article>{postContent}</article>
-        <Footer author={author} />
-      </body>
-    </html>
+    <section>
+      <h2>
+        <a href={"/" + postSlug}>{postSlug}</a>
+      </h2>
+      <article>{postContent}</article>
+    </section>
   );
 }

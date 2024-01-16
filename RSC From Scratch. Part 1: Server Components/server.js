@@ -1,18 +1,39 @@
 import { createServer } from "http";
-import { readFile } from "fs/promises";
+import { readFile, readdir } from "fs/promises";
 import escapeHtml from "escape-html";
-import { BlogPostPage } from "./app/index.js";
+import sanitizeFilename from "sanitize-filename";
+import { BlogIndexPage, BlogLayout, BlogPostPage } from "./app/index.js";
 
-createServer(async (req, res) => {
-  const author = "woo1031";
-  const postContent = await readFile("./posts/hello-world.txt", "utf8");
-  sendHTML(res, <BlogPostPage author={author} postContent={postContent} />);
-}).listen(8080);
+async function matchRoute(url) {
+  if (url.pathname === "/") {
+    const postFiles = await readdir("./posts");
+    const postSlugs = postFiles.map((file) =>
+      file.slice(0, file.lastIndexOf("."))
+    );
+    const postContents = await Promise.all(
+      postSlugs.map((postSlug) =>
+        readFile("./posts/" + postSlug + ".txt", "utf8")
+      )
+    );
+    return <BlogIndexPage postSlugs={postSlugs} postContents={postContents} />;
+  } else {
+    const postSlug = sanitizeFilename(url.pathname.slice(1));
+    try {
+      const postContent = await readFile(
+        "./posts/" + postSlug + ".txt",
+        "utf8"
+      );
+      return <BlogPostPage postSlug={postSlug} postContent={postContent} />;
+    } catch (err) {
+      throwNotFound(err);
+    }
+  }
+}
 
-function sendHTML(res, jsx) {
-  const html = renderJSXToHTML(jsx);
-  res.setHeader("Content-Type", "text/html");
-  res.end(html);
+function throwNotFound(cause) {
+  const notFound = new Error("Not found.", { cause });
+  notFound.statusCode = 404;
+  throw notFound;
 }
 
 function renderJSXToHTML(jsx) {
@@ -47,3 +68,21 @@ function renderJSXToHTML(jsx) {
     } else throw new Error("Cannot render an object.");
   } else throw new Error("Not implemented.");
 }
+
+function sendHTML(res, jsx) {
+  const html = renderJSXToHTML(jsx);
+  res.setHeader("Content-Type", "text/html");
+  res.end(html);
+}
+
+createServer(async (req, res) => {
+  try {
+    const url = new URL(req.url, `http://${req.headers.host}`);
+    const page = await matchRoute(url);
+    sendHTML(res, <BlogLayout>{page}</BlogLayout>);
+  } catch (err) {
+    console.error(err);
+    res.statusCode = err.statusCode ?? 500;
+    res.end();
+  }
+}).listen(8080);
