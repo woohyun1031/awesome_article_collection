@@ -13,7 +13,7 @@ const babelOptions = {
   plugins: [["@babel/plugin-transform-react-jsx", { runtime: "automatic" }]],
 };
 
-register("./node-jsx-loader.js", pathToFileURL("./"));
+register("./server/node-jsx-loader.js", pathToFileURL("./"));
 
 export async function load(url, context, defaultLoad) {
   const result = await defaultLoad(url, context, defaultLoad);

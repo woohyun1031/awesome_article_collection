@@ -3,7 +3,7 @@ import { readFile } from "fs/promises";
 export async function Post({ slug }) {
   let content;
   try {
-    content = await readFile("./posts/" + slug + ".txt", "utf8");
+    content = await readFile("./server/posts/" + slug + ".txt", "utf8");
   } catch (err) {
     throwNotFound(err);
   }

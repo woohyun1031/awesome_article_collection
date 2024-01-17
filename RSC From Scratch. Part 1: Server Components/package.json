@@ -10,7 +10,7 @@
     "sanitize-filename": "^1.6.3"
   },
   "scripts": {
-    "start": "nodemon --loader ./node-jsx-loader.js ./server.js"
+    "start": "nodemon --loader ./server/node-jsx-loader.js ./server/server.js"
   },
   "devDependencies": {
     "@types/node": "^17.0.21"
