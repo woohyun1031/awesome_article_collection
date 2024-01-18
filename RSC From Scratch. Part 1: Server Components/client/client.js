@@ -2,13 +2,11 @@ let currentPathname = window.location.pathname;
 
 async function navigate(pathname) {
   currentPathname = pathname;
-  const response = await fetch(pathname);
-  const html = await response.text();
+  const response = await fetch(pathname + "?jsx");
+  const jsonString = await response.text();
   if (pathname === currentPathname) {
-    const bodyStartIndex = html.indexOf("<body>") + "<body>".length;
-    const bodyEndIndex = html.lastIndexOf("</body>");
-    const bodyHTML = html.slice(bodyStartIndex, bodyEndIndex);
-    document.body.innerHTML = bodyHTML;
+    console.log(jsonString);
+    alert(jsonString);
   }
 }
 

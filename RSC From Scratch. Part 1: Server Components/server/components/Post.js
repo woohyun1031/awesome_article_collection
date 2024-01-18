@@ -1,5 +1,11 @@
 import { readFile } from "fs/promises";
 
+function throwNotFound(cause) {
+  const notFound = new Error("Not found.", { cause });
+  notFound.statusCode = 404;
+  throw notFound;
+}
+
 export async function Post({ slug }) {
   let content;
   try {

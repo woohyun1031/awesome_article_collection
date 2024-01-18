@@ -11,6 +11,8 @@ export function BlogLayout({ children }) {
         <nav>
           <a href="/">Home</a>
           <hr />
+          <input />
+          <hr />
         </nav>
         <main>{children}</main>
         <Footer author={author} />
