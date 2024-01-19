@@ -110,8 +110,10 @@ async function sendJSX(res, jsx) {
 
 async function sendHTML(res, jsx) {
   console.log("sendHTML:::");
-  let html = await renderJSXToHTML(jsx);
+  // // 1. <Router /> 를 먼저 <html>...</html> 형태로 변경 (객체)
   const clientJSX = await renderJSXToClientJSX(jsx);
+  // 2. <html>...</html> 를 "<html>...</html>" 형태로 변경 (문자열)
+  let html = await renderJSXToHTML(clientJSX);
   const clientJSXString = JSON.stringify(clientJSX, stringifyJSX);
   html += `<script>window.__INITIAL_CLIENT_JSX_STRING__ = `;
   html += JSON.stringify(clientJSXString).replace(/</g, "\\u003c");
