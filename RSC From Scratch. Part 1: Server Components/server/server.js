@@ -83,6 +83,16 @@ async function renderJSXToHTML(jsx) {
   } else throw new Error("Not implemented.");
 }
 
+function stringifyJSX(key, value) {
+  if (value === Symbol.for("react.element")) {
+    return "$RE";
+  } else if (typeof value === "string" && value.startsWith("$")) {
+    return "$" + value;
+  } else {
+    return value;
+  }
+}
+
 async function sendScript(res, filename) {
   console.log("sendScript:::", filename);
   const content = await readFile(filename, "utf8");
@@ -93,7 +103,7 @@ async function sendScript(res, filename) {
 async function sendJSX(res, jsx) {
   console.log("sendJSX:::");
   const clientJSX = await renderJSXToClientJSX(jsx);
-  const clientJSXString = JSON.stringify(clientJSX, null, 2); // Indent with two spaces
+  const clientJSXString = JSON.stringify(clientJSX, stringifyJSX); // Indent with two spaces
   res.setHeader("Content-Type", "application/json");
   res.end(clientJSXString);
 }
@@ -101,7 +111,17 @@ async function sendJSX(res, jsx) {
 async function sendHTML(res, jsx) {
   console.log("sendHTML:::");
   let html = await renderJSXToHTML(jsx);
-  html += `<script type="module" src="/client/client.js"></script>`;
+  html += `
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@canary",
+          "react-dom/client": "https://esm.sh/react-dom@canary/client"
+        }
+      }
+    </script>
+    <script type="module" src="/client/client.js"></script>
+  `;
   res.setHeader("Content-Type", "text/html");
   res.end(html);
 }
