@@ -12,7 +12,8 @@ async function navigate(pathname) {
 }
 
 function getInitialClientJSX() {
-  return null;
+  const clientJSX = JSON.parse(window.__INITIAL_CLIENT_JSX_STRING__, parseJSX);
+  return clientJSX;
 }
 
 function parseJSX(key, value) {
