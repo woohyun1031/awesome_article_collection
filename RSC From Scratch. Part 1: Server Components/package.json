@@ -8,12 +8,13 @@
     "escape-html": "^1.0.3",
     "nodemon": "^2.0.22",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sanitize-filename": "^1.6.3"
   },
   "scripts": {
     "start": "concurrently \"npm run start:ssr\" \"npm run start:rsc\"",
-    "start:rsc": "nodemon -- --experimental-loader ./node-jsx-loader.js ./server/rsc.js",
-    "start:ssr": "nodemon -- --experimental-loader ./node-jsx-loader.js ./server/ssr.js"
+    "start:rsc": "nodemon -- --experimental-loader ./server/node-jsx-loader.js ./server/rsc.js",
+    "start:ssr": "nodemon -- --experimental-loader ./server/node-jsx-loader.js ./server/ssr.js"
   },
   "devDependencies": {
     "@types/node": "^17.0.21"
