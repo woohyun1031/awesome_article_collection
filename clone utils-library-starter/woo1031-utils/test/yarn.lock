@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-woo1031-utils@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/woo1031-utils/-/woo1031-utils-1.0.0.tgz#52ac699e2849215e055eff9cfba0e9e16d9a84c8"
-  integrity sha512-ku3rKN77kyG+phODJRM4rXtQSPV/OP93iqiS5Wgb+MGX2LzeGEek8XX+S/e+nxNJlNE3uf1zePICu04nR05EaA==
+woo1031-utils@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/woo1031-utils/-/woo1031-utils-1.0.1.tgz#b18aa4fbe85ce3f07b2e9f4ed7db01b91a72039a"
+  integrity sha512-dVaZp0Hc2LptiL3slMjuEr7tYj1Lj5H1CTV9pbCxE1bghoeDwyGWd9sCYCnalFWCMJ4IT3kKY8DJMFlBW8h8Wg==
