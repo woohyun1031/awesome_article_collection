@@ -1,4 +1,4 @@
-import { add, divide, multiply, subtract } from "woo1031-utils";
+const { add, divide, multiply, subtract } = require("woo1031-utils");
 
 console.log(add(1, 2));
 console.log(subtract(1, 2));
