@@ -1647,10 +1647,10 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-woo1031-utils@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/woo1031-utils/-/woo1031-utils-1.0.4.tgz#bb79ffa0297d5416238404427b4c1035be5f9b4c"
-  integrity sha512-CaFAIkXJNelzyEHI3Np+prQdBlq9BumULW2rBnilX/znvvEPQSoEhR+jiAZCZU+T1OlE3MUkLW0EHSzFN/GMTA==
+woo1031-utils@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/woo1031-utils/-/woo1031-utils-1.2.0.tgz#32feaa1d373054b6301f4fdb3101f21fe8e88dec"
+  integrity sha512-gNFhATtfhHJLuSMHNHXuIndfjsJEfQp7/WI3MrTTG09IX/ZC2WFWdlLSnpyXB49pB/C4Dw/281Po/pCK/AFQtw==
 
 wrappy@1:
   version "1.0.2"
