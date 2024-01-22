@@ -4,10 +4,19 @@
   "version": "1.0.4",
   "main": "src/index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "yarn build:tsc",
+    "build:tsc": "yarn tsc"
+  },
   "exports": {
     ".": {
       "import": "./src/index.js",
       "require": "./src/index.cjs"
     }
-  }
+  },
+  "devDependencies": {
+    "@types/node": "20.8.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {}
 }
