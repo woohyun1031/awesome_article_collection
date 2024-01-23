@@ -1,13 +1,15 @@
 {
   "name": "woo1031-utils",
   "type": "module",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "prepack": "yarn build",
-    "build": "yarn build:tsc",
-    "build:tsc": "yarn tsc"
+    "build": "yarn clean && yarn build:tsc && yarn build:js",
+    "build:tsc": "yarn tsc --emitDeclarationOnly",
+    "build:js": "node build.js",
+    "clean": "rm -rf dist"
   },
   "exports": {
     ".": {
