@@ -1,7 +1,7 @@
 from os import listdir
 from urllib.parse import quote
 
-readme_file_path = "README.md"
+readme_file_path = "../README.md"
 articles_file_dir = "../articles/"
 articles_file_dir_from_root = "../articles/"
 
