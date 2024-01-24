@@ -3,7 +3,7 @@ from urllib.parse import quote
 
 readme_file_path = "README.md"
 articles_file_dir = "../articles/"
-articles_file_dir_from_root = "articles/"
+articles_file_dir_from_root = "../articles/"
 
 title_project = "# Awesome Article Collection"
 desc_project = "아래 나열된 아티클과 프로젝트들을 개인적으로 구현해보는 낙서장과 같은 곳입니다."\
