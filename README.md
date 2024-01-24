@@ -8,6 +8,6 @@
 
 | \# | Article
 | ------------- | -------------
- | 1. | [You don't need JavaScript for that](../articles/You%20don%27t%20need%20JavaScript%20for%20that)
- | 2. | [clone utils-library-starter](../articles/clone%20utils-library-starter)
- | 3. | [RSC From Scratch. Part 1: Server Components](../articles/RSC%20From%20Scratch.%20Part%201%3A%20Server%20Components)
+ | 1. | [You don't need JavaScript for that](articles/You%20don%27t%20need%20JavaScript%20for%20that)
+ | 2. | [clone utils-library-starter](articles/clone%20utils-library-starter)
+ | 3. | [RSC From Scratch. Part 1: Server Components](articles/RSC%20From%20Scratch.%20Part%201%3A%20Server%20Components)
