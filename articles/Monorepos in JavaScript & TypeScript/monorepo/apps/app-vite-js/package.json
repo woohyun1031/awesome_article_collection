@@ -1,0 +1,25 @@
+{
+  "name": "app-vite-js",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "TIMING=1 eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
+    "preview": "vite preview",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf build"
+  },
+  "dependencies": {
+    "@bigstair/core": "*",
+    "@bigstair/map": "*",
+    "react": "18.0.0",
+    "react-dom": "18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.0",
+    "@types/react-dom": "18.0.0",
+    "@vitejs/plugin-react": "1.3.0",
+    "eslint-config-react-app": "7.0.1",
+    "vite": "2.9.9"
+  }
+}

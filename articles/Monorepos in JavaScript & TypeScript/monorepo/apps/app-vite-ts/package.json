@@ -1,0 +1,25 @@
+{
+  "name": "app-vite-ts",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "TIMING=1 eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
+    "preview": "vite preview",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf build"
+  },
+  "dependencies": {
+    "@bigstair/core": "*",
+    "react": "18.0.0",
+    "react-dom": "18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.0",
+    "@types/react-dom": "18.0.0",
+    "@vitejs/plugin-react": "1.3.0",
+    "eslint-config-react-app": "7.0.1",
+    "typescript": "4.6.3",
+    "vite": "2.9.9"
+  }
+}
